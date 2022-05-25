@@ -1,6 +1,7 @@
 package com.bing.search.ui.pageobjects;
 
-import com.bing.search.ui.domain.SearchResult;
+import com.bing.search.utils.UtilLogger;
+import com.bing.search.domain.SearchResult;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,17 +21,16 @@ public class SearchResultsPage extends AbstractPage {
         for (WebElement searchResultCard : searchResultCards) {
             String title = searchResultCard.findElement(By.cssSelector(titleSelector)).getText();
             String url = searchResultCard.findElement(By.cssSelector(urlSelector)).getText();
-            SearchResult searchResult = new SearchResult(title, url);
-            results.add(searchResult);
+            results.add(new SearchResult(title, url));
         }
-        logger.info("Search Results Page loaded");
+        UtilLogger.logger.info("Search Results Page loaded");
         return results;
     }
 
     public boolean isSearchResultsContainsTitle(String title) {
         for (SearchResult searchResult : getListOfSearchResults()) {
             if (searchResult.getTitle().contains(title)){
-                logger.info(searchResult.toString());
+                UtilLogger.logger.info(searchResult.toString());
                 return true;
             }
         }
@@ -40,7 +40,7 @@ public class SearchResultsPage extends AbstractPage {
     public boolean isSearchResultsContainsUrl(String url) {
         for (SearchResult searchResult : getListOfSearchResults()) {
             if (searchResult.getUrl().contains(url)){
-                logger.info(searchResult.toString());
+                UtilLogger.logger.info(searchResult.toString());
                 return true;
             }
         }

@@ -1,4 +1,4 @@
-package com.bing.search.ui.domain;
+package com.bing.search.domain;
 
 public class SearchResult {
     private String title;

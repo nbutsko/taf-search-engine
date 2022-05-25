@@ -10,8 +10,6 @@ public class AbstractPage {
 
     public final static String BASE_URL = "https://www.bing.com";
 
-    protected final static Logger logger = LogManager.getLogger();
-
     protected WebDriver driver;
 
     public AbstractPage() {

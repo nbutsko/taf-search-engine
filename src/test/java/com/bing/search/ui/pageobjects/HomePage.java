@@ -1,5 +1,6 @@
 package com.bing.search.ui.pageobjects;
 
+import com.bing.search.utils.UtilLogger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,7 +20,7 @@ public class HomePage extends AbstractPage {
     public SearchResultsPage inputSearchQueryAndClickButtonSearch(String searchQuery) {
         inputSearch.sendKeys(searchQuery);
         buttonSearch.click();
-        logger.info("Search Go clicked");
+        UtilLogger.logger.info("Search Go clicked");
         return new SearchResultsPage();
     }
 }
